@@ -1,0 +1,63 @@
+.button {
+  padding: 9px 15px;
+  border-radius: 2px;
+  background-color: $cerulean;
+  text-align: center;
+  color: $white;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $deep-aqua;
+  }
+
+  &.grey {
+    background-color: $white2;
+    color: $black;
+
+    &:hover {
+      background-color: $very-light-pink;
+    }
+  }
+
+  svg {
+    vertical-align: middle;
+  }
+
+  span {
+    font-family: ProximaNova;
+    font-size: 14px;
+
+    margin-left: 13px;
+    vertical-align: middle;
+  }
+
+  &.icon {
+    background-color: transparent;
+    padding: 0;
+
+    &:hover {
+      path {
+        stroke: $deep-aqua;
+      }
+    }
+
+    path {
+      stroke: $cerulean;
+      stroke-width: 2;
+      fill: transparent;
+    }
+
+    &.filled {
+      path {
+        fill: $cerulean;
+        stroke: none;
+      }
+
+      &:hover {
+        path {
+          fill: $deep-aqua;
+        }
+      }
+    }
+  }
+}
