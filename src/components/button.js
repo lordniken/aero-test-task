@@ -2,6 +2,7 @@ import React from "react";
 import classnames from "classnames";
 
 export default function Button({ title, icon, filled = true, color }) {
+  //console.log(filled);
   const buttonClasses = classnames({
     button: true,
     icon: !title,

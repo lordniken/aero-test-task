@@ -7,7 +7,8 @@ import { ReactComponent as CheckIcon } from "../assets/svg/check.svg";
 import { ReactComponent as FavIcon } from "../assets/svg/favourite-active.svg";
 import { ReactComponent as CompIcon } from "../assets/svg/comparsion.svg";
 
-export default function Product() {
+export default function Product({ inFav }) {
+  console.log(inFav);
   return (
     <div className="product-item">
       <div className="product-item-header">
@@ -46,7 +47,7 @@ export default function Product() {
         <Button title="Купить" icon={<CartIcon />} />
         <ul className="product-item-footer__badges">
           <li>
-            <Button icon={<FavIcon />} />
+            <Button icon={<FavIcon />} filled={inFav} />
           </li>
           <li>
             <Button icon={<CompIcon />} />
