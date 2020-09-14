@@ -1,4 +1,4 @@
-import { FETCH_PRODUCTS_DATA, FETCH_ERROR } from "./actions/app";
+import { fetchProductsData, fetchError } from "./actions/app";
 
 const makeRequest = async (url, method) => {
   const res = await fetch(url, {
@@ -17,15 +17,9 @@ export const getProductsData = (dispatch) => {
 
     try {
       if (fetchedData.success) {
-        dispatch({
-          type: FETCH_PRODUCTS_DATA,
-          payload: fetchedData.data.products,
-        });
+        dispatch(fetchProductsData(fetchedData.data.products));
       } else {
-        dispatch({
-          type: FETCH_ERROR,
-          payload: "Ошибка при загрузке данных",
-        });
+        dispatch(fetchError("Ошибка при загрузке данных"));
       }
     } catch (e) {
       console.log(e);
