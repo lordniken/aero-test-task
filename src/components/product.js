@@ -4,10 +4,9 @@ import productImg from "../assets/img/image.jpg";
 import Button from "./button";
 import { ReactComponent as CartIcon } from "../assets/svg/cart.svg";
 import { ReactComponent as CheckIcon } from "../assets/svg/check.svg";
-import { ReactComponent as FavIcon } from "../assets/svg/favourite-active.svg";
-import { ReactComponent as CompIcon } from "../assets/svg/comparsion.svg";
+import Badges from "./badges";
 
-export default function Product({ inFav }) {
+export default function Product({ id, inFav }) {
   return (
     <div className="product-item">
       <div className="product-item-header">
@@ -44,14 +43,7 @@ export default function Product({ inFav }) {
       <div className="product-item__bonus">+490 бонусов</div>
       <div className="product-item-footer">
         <Button title="Купить" icon={<CartIcon />} />
-        <ul className="product-item-footer__badges">
-          <li>
-            <Button icon={<FavIcon />} filled={inFav} />
-          </li>
-          <li>
-            <Button icon={<CompIcon />} />
-          </li>
-        </ul>
+        <Badges id={id} inFav={inFav} />
       </div>
     </div>
   );

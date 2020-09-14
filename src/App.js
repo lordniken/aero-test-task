@@ -9,18 +9,21 @@ export default function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getProductsData(dispatch));
+    dispatch(getProductsData());
   }, []);
 
   const { data, errorText } = useSelector(({ app }) => app);
 
   return (
     <div className="wrapper">
-      {errorText && <div className="loading">{errorText}</div>}
+      {/* todo - add error class */}
+      {errorText && <div className="error">{errorText}</div>}
       {!data && !errorText && <div className="loading">Загрузка..</div>}
       <div className="product-list">
         {data &&
-          data.map((item) => <Product key={item.id} inFav={item.inFav} />)}
+          data.map((item) => (
+            <Product key={item.id} id={item.id} inFav={item.inFav} />
+          ))}
       </div>
       <div className="filter">
         <Filter />

@@ -1,12 +1,18 @@
-export const FETCH_PRODUCTS_DATA = "FETCH_PRODUCTS_DATA";
-export const FETCH_ERROR = "FETCH_ERROR";
+export const SET_PRODUCTS_DATA = "SET_PRODUCTS_DATA";
+export const SET_ERROR = "SET_ERROR";
+export const SET_FAV_STATE = "SET_FAV_STATE";
 
-export const fetchProductsData = (payload) => ({
-  type: FETCH_PRODUCTS_DATA,
+export const setProductsData = (payload) => ({
+  type: SET_PRODUCTS_DATA,
   payload,
 });
 
-export const fetchError = (payload) => ({
-  type: FETCH_ERROR,
+export const setError = (payload) => ({
+  type: SET_ERROR,
   payload,
+});
+
+export const setFav = (id, inFav) => ({
+  type: SET_FAV_STATE,
+  payload: { id, inFav },
 });

@@ -1,8 +1,7 @@
 import React from "react";
 import classnames from "classnames";
 
-export default function Button({ title, icon, filled = true, color }) {
-  //console.log(filled);
+export default function Button({ title, icon, filled = true, color, onClick }) {
   const buttonClasses = classnames({
     button: true,
     icon: !title,
@@ -11,8 +10,8 @@ export default function Button({ title, icon, filled = true, color }) {
   });
 
   return (
-    <div className={buttonClasses}>
-      {icon}
+    <div className={buttonClasses} onClick={onClick}>
+      {icon && icon}
       {title && <span>{title}</span>}
     </div>
   );
