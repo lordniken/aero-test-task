@@ -1,4 +1,4 @@
-import { setProductsData, setError, setFav } from "./actions/app";
+import { setProductsData, setFav, setFiltered } from "./actions";
 
 const apiUrl = "https://my-json-server.typicode.com/aero-frontend/test-task";
 
@@ -15,18 +15,15 @@ export const getProductsData = () => {
     try {
       const fetchedData = await makeRequest(`${apiUrl}/PRODUCTS_SUCCESS`);
 
-      if (fetchedData.success) {
+      if (fetchedData.status === "PRODUCTS_SUCCESS")
         dispatch(setProductsData(fetchedData.data.products));
-      } else {
-        dispatch(setError("Ошибка при загрузке данных"));
-      }
     } catch (e) {
       console.log(`Ошибка: ${e}`);
     }
   };
 };
 
-export const setFavState = (id) => {
+export const fetchFavState = (id) => {
   return async (dispatch) => {
     try {
       const fetchedData = await makeRequest(
@@ -35,6 +32,24 @@ export const setFavState = (id) => {
 
       if (fetchedData.status === "FAVORITE_SUCCESS") {
         dispatch(setFav(id, fetchedData.data.inFav));
+      } else {
+        console.log(fetchedData.data.message);
+      }
+    } catch (e) {
+      console.log(`Ошибка: ${e}`);
+    }
+  };
+};
+
+export const fetchFilter = (filters) => {
+  return async (dispatch) => {
+    try {
+      const fetchedData = await makeRequest(
+        `${apiUrl}/FILTER_SUCCESS?filters=${filters}`
+      );
+
+      if (fetchedData.status === "FILTER_SUCCESS") {
+        dispatch(setFiltered(fetchedData.data.products));
       } else {
         console.log(fetchedData.data.message);
       }

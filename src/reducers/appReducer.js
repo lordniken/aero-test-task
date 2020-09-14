@@ -1,8 +1,12 @@
-import { SET_PRODUCTS_DATA, SET_ERROR, SET_FAV_STATE } from "../actions/app";
+import {
+  SET_PRODUCTS_DATA,
+  SET_FAV_STATE,
+  SET_FILTERED_DATA,
+} from "../actions";
 
 const initialState = {
   data: null,
-  errorText: null,
+  filtered: null,
 };
 
 export function appReducer(state = initialState, action) {
@@ -12,11 +16,6 @@ export function appReducer(state = initialState, action) {
         ...state,
         data: action.payload,
       };
-    case SET_ERROR:
-      return {
-        ...state,
-        errorText: action.payload,
-      };
     case SET_FAV_STATE:
       return {
         ...state,
@@ -25,6 +24,11 @@ export function appReducer(state = initialState, action) {
             ? { ...item, inFav: action.payload.inFav }
             : { ...item }
         ),
+      };
+    case SET_FILTERED_DATA:
+      return {
+        ...state,
+        filtered: action.payload,
       };
     default:
       return state;

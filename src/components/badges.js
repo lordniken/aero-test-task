@@ -3,13 +3,13 @@ import Button from "./button";
 import { ReactComponent as FavIcon } from "../assets/svg/favourite-active.svg";
 import { ReactComponent as CompIcon } from "../assets/svg/comparsion.svg";
 import { useDispatch } from "react-redux";
-import { setFavState } from "../fetch";
+import { fetchFavState } from "../fetch";
 
 export default function Badges({ id, inFav }) {
   const dispatch = useDispatch();
 
   const handleFavClick = () => {
-    dispatch(setFavState(id));
+    dispatch(fetchFavState(id));
   };
 
   return (

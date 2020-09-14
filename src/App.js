@@ -12,18 +12,36 @@ export default function App() {
     dispatch(getProductsData());
   }, []);
 
-  const { data, errorText } = useSelector(({ app }) => app);
+  const { data, filtered } = useSelector(({ app }) => app);
 
   return (
     <div className="wrapper">
-      {/* todo - add error class */}
-      {errorText && <div className="error">{errorText}</div>}
-      {!data && !errorText && <div className="loading">Загрузка..</div>}
+      {!data && <div className="loading">Загрузка..</div>}
       <div className="product-list">
-        {data &&
-          data.map((item) => (
-            <Product key={item.id} id={item.id} inFav={item.inFav} />
-          ))}
+        {filtered
+          ? filtered.map((item) => (
+              <Product
+                key={item.id}
+                id={item.id}
+                inFav={item.inFav}
+                code={item.code}
+                availability={item.availability}
+                title={item.title}
+                params={item.params}
+              />
+            ))
+          : data &&
+            data.map((item) => (
+              <Product
+                key={item.id}
+                id={item.id}
+                inFav={item.inFav}
+                code={item.code}
+                availability={item.availability}
+                title={item.title}
+                params={item.params}
+              />
+            ))}
       </div>
       <div className="filter">
         <Filter />
