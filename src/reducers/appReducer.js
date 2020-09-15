@@ -9,6 +9,12 @@ const initialState = {
   filtered: null,
 };
 
+// We need to change both states to display them correctly
+const changeItemFav = (elState, payload) =>
+  elState.map((item) =>
+    item.id === payload.id ? { ...item, inFav: payload.inFav } : { ...item }
+  );
+
 export function appReducer(state = initialState, action) {
   switch (action.type) {
     case SET_PRODUCTS_DATA:
@@ -18,12 +24,9 @@ export function appReducer(state = initialState, action) {
       };
     case SET_FAV_STATE:
       return {
-        ...state,
-        data: state.data.map((item) =>
-          item.id === action.payload.id
-            ? { ...item, inFav: action.payload.inFav }
-            : { ...item }
-        ),
+        data: changeItemFav(state.data, action.payload),
+        filtered:
+          state.filtered && changeItemFav(state.filtered, action.payload),
       };
     case SET_FILTERED_DATA:
       return {
