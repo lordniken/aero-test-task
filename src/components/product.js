@@ -13,15 +13,17 @@ export default function Product({
   title,
   params,
   imgUrl,
+  rating,
+  price,
 }) {
   return (
     <div className="product-item">
       <div className="product-item-header">
-        <Rate rating={3} />
+        <Rate rating={rating} />
         <span className="product-item-header__id">Арт. {code}</span>
       </div>
       <div className="product-item__img">
-        <img src={`/${imgUrl}`} alt={title} />
+        <img src={`/img/${imgUrl}`} alt={title} />
       </div>
       <div className="product-item__stock">
         {availability && (
@@ -29,7 +31,9 @@ export default function Product({
             <CheckIcon />
           </div>
         )}
-        <span>{availability ? "В наличии" : "Нет в наличии"}</span>
+        <span className={!availability ? "ended" : null}>
+          {availability ? "В наличии" : "Нет в наличии"}
+        </span>
       </div>
       <div className="product-item__title">{title}</div>
       <div className="product-item__features">
@@ -42,10 +46,10 @@ export default function Product({
           ))}
         </ul>
       </div>
-      <div className="product-item__price">49 999 руб.</div>
+      <div className="product-item__price">{`${price.toLocaleString()} руб.`}</div>
       <div className="product-item__bonus">+490 бонусов</div>
       <div className="product-item-footer">
-        <Button title="Купить" icon={<CartIcon />} />
+        <Button title="Купить" icon={<CartIcon />} disabled={!availability} />
         <Badges id={id} inFav={inFav} />
       </div>
     </div>

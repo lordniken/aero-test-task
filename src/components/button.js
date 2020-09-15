@@ -7,6 +7,7 @@ export default function Button({
   filled = true,
   fullWidth = false,
   color,
+  disabled = false,
   onClick,
 }) {
   const buttonClasses = classnames({
@@ -15,6 +16,7 @@ export default function Button({
     filled: filled && icon,
     "full-width": fullWidth,
     grey: color === "secondary",
+    disabled,
   });
 
   return (

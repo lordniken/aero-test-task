@@ -1,10 +1,14 @@
 import { setProductsData, setFav, setFiltered } from "./actions";
 
-const apiUrl = "https://my-json-server.typicode.com/aero-frontend/test-task";
+const apiUrl = "http://aero-task.lnkdev.ru/api";
 
-const makeRequest = async (url) => {
+const makeRequest = async (url, method = "GET", body = undefined) => {
   const res = await fetch(url, {
-    method: "GET",
+    method,
+    body,
+    headers: {
+      "Content-Type": "application/json",
+    },
   });
 
   return await res.json();
@@ -13,7 +17,7 @@ const makeRequest = async (url) => {
 export const getProductsData = () => {
   return async (dispatch) => {
     try {
-      const fetchedData = await makeRequest(`${apiUrl}/PRODUCTS_SUCCESS`);
+      const fetchedData = await makeRequest(`${apiUrl}/PRODUCTS`);
 
       if (fetchedData.status === "PRODUCTS_SUCCESS")
         dispatch(setProductsData(fetchedData.data.products));
@@ -27,7 +31,9 @@ export const fetchFavState = (id) => {
   return async (dispatch) => {
     try {
       const fetchedData = await makeRequest(
-        `${apiUrl}/FAVORITE_SUCCESS?productID=${id}`
+        `${apiUrl}/FAVORITE`,
+        "PUT",
+        JSON.stringify({ id })
       );
 
       if (fetchedData.status === "FAVORITE_SUCCESS") {
@@ -45,7 +51,9 @@ export const fetchFilter = (filters) => {
   return async (dispatch) => {
     try {
       const fetchedData = await makeRequest(
-        `${apiUrl}/FILTER_SUCCESS?filters=${filters}`
+        `${apiUrl}/FILTER`,
+        "POST",
+        JSON.stringify({ filters })
       );
 
       if (fetchedData.status === "FILTER_SUCCESS") {

@@ -10,7 +10,7 @@ export default function App() {
 
   useEffect(() => {
     dispatch(getProductsData());
-  }, []);
+  }, [dispatch]);
 
   const { data, filtered } = useSelector(({ app }) => app);
 
@@ -29,6 +29,8 @@ export default function App() {
               availability={item.availability}
               title={item.title}
               params={item.params}
+              rating={item.rating}
+              price={item.price}
             />
           ))}
       </div>

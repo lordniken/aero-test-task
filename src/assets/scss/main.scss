@@ -8,6 +8,7 @@ body {
   margin: 0;
   font-family: ProximaNovaLight;
   font-size: 12px;
+  overflow-y: scroll;
 }
 
 #root {
@@ -18,9 +19,10 @@ body {
 }
 
 .wrapper {
-  width: 1280px;
+  width: 1260px;
   margin: 10px;
   display: flex;
+  justify-content: space-between;
 }
 
 .product-list {
@@ -50,10 +52,15 @@ body {
   &__img {
     text-align: center;
     margin-bottom: 35px;
+
+    img {
+      height: 145px;
+    }
   }
 
   &__stock {
     margin-bottom: 7px;
+    height: 20px;
 
     &__icon {
       display: inline-block;
@@ -76,6 +83,10 @@ body {
       position: relative;
       vertical-align: top;
     }
+
+    .ended {
+      color: $gray;
+    }
   }
 
   &__title {
@@ -83,13 +94,16 @@ body {
     font-size: 18px;
     color: $black;
     margin-bottom: 15px;
+    height: 66px;
   }
 
   &__features {
+    margin-bottom: 20px;
+
     ul {
       list-style: none;
       padding: 0;
-      margin: 0 0 20px 0;
+      margin: 0;
 
       li {
         color: $brown-grey;

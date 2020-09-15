@@ -29,6 +29,11 @@
     width: 100%;
   }
 
+  &.disabled {
+    background-color: $gray;
+    cursor: default;
+  }
+
   svg {
     pointer-events: none;
     vertical-align: middle;
