@@ -1,6 +1,5 @@
 import React from "react";
 import Rate from "./rate";
-import productImg from "../assets/img/image.jpg";
 import Button from "./button";
 import { ReactComponent as CartIcon } from "../assets/svg/cart.svg";
 import { ReactComponent as CheckIcon } from "../assets/svg/check.svg";
@@ -13,6 +12,7 @@ export default function Product({
   availability,
   title,
   params,
+  imgUrl,
 }) {
   return (
     <div className="product-item">
@@ -21,10 +21,14 @@ export default function Product({
         <span className="product-item-header__id">Арт. {code}</span>
       </div>
       <div className="product-item__img">
-        <img src={productImg} alt={""} />
+        <img src={`/${imgUrl}`} alt={title} />
       </div>
       <div className="product-item__stock">
-        {availability && <CheckIcon />}
+        {availability && (
+          <div className="product-item__stock__icon">
+            <CheckIcon />
+          </div>
+        )}
         <span>{availability ? "В наличии" : "Нет в наличии"}</span>
       </div>
       <div className="product-item__title">{title}</div>

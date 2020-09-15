@@ -10,7 +10,7 @@
   user-select: none;
 
   &:hover {
-    .checkmark {
+    .checkbox_mark {
       border-color: $cerulean;
     }
 
@@ -19,9 +19,10 @@
     }
   }
 
-  .checkbox_title {
+  &_title {
     display: inline-block;
     width: 90px;
+    line-height: 1;
   }
 
   input {
@@ -32,7 +33,7 @@
     width: 0;
 
     &:checked {
-      ~ .checkmark {
+      ~ .checkbox_mark {
         background-color: $dark-sky-blue;
         border-width: 0;
         box-shadow: inset 0 1px 3px 0 rgba(0, 0, 0, 0.32);
@@ -48,7 +49,7 @@
     }
   }
 
-  .checkmark {
+  &_mark {
     position: absolute;
     top: 2px;
     left: 0;
@@ -72,7 +73,7 @@
   }
 
   &:hover input {
-    + .checkmark {
+    + .checkbox_mark {
       border-color: $cerulean;
     }
   }

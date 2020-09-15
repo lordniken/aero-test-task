@@ -40,7 +40,7 @@ body {
   &-header {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 40px;
+    margin-bottom: 35px;
 
     &__id {
       color: $brown-grey;
@@ -53,12 +53,20 @@ body {
   }
 
   &__stock {
-    margin-bottom: 10px;
+    margin-bottom: 7px;
 
-    svg {
-      padding-right: 7px;
-      path {
-        fill: $frog-green;
+    &__icon {
+      display: inline-block;
+      width: 16px;
+      height: 16px;
+      margin-right: 5px;
+
+      svg {
+        padding: 4px 2.7px;
+
+        path {
+          fill: $frog-green;
+        }
       }
     }
 
@@ -66,6 +74,7 @@ body {
       color: $frog-green;
       font-size: 14px;
       position: relative;
+      vertical-align: top;
     }
   }
 
@@ -103,7 +112,7 @@ body {
 
   &__bonus {
     color: $dark-sky-blue;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
   }
 
   &-footer {
@@ -128,10 +137,11 @@ body {
   background-color: $white;
   display: flex;
   align-items: flex-end;
+  margin-top: 4px;
 
   &__star {
     margin-right: 5px;
-    cursor: pointer;
+    pointer-events: none;
 
     &.inactive {
       g {
@@ -169,9 +179,9 @@ body {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       grid-column-gap: 20px;
+      grid-row-gap: 7px;
 
       li {
-        padding-bottom: 7px;
         display: inline-block;
         vertical-align: top;
       }

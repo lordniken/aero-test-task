@@ -1,18 +1,26 @@
 import React from "react";
 import classnames from "classnames";
 
-export default function Button({ title, icon, filled = true, color, onClick }) {
+export default function Button({
+  title,
+  icon,
+  filled = true,
+  fullWidth = false,
+  color,
+  onClick,
+}) {
   const buttonClasses = classnames({
     button: true,
     icon: !title,
     filled: filled && icon,
+    "full-width": fullWidth,
     grey: color === "secondary",
   });
 
   return (
-    <div className={buttonClasses} onClick={onClick}>
+    <button className={buttonClasses} onClick={onClick}>
       {icon && icon}
       {title && <span>{title}</span>}
-    </div>
+    </button>
   );
 }

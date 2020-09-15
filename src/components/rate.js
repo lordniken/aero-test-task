@@ -8,13 +8,14 @@ export default function rate({ rating }) {
   return (
     <div className="rate-items">
       {iconList.map((_, value) => (
-        <Star
-          className={classnames({
-            "rate-items__star": true,
-            inactive: value + 1 > rating,
-          })}
-          key={value}
-        />
+        <a href="#" key={value}>
+          <Star
+            className={classnames({
+              "rate-items__star": true,
+              inactive: value + 1 > rating,
+            })}
+          />
+        </a>
       ))}
     </div>
   );

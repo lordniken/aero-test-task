@@ -37,13 +37,18 @@ export default function Filter() {
   };
 
   return (
-    <>
+    <div className="filter">
       <div className="filter-buttons">
-        <Button title="Показать результат" onClick={resultButtonHandler} />
+        <Button
+          title="Показать результат"
+          onClick={resultButtonHandler}
+          fullWidth
+        />
         <Button
           title="Очистить фильтр"
           color="secondary"
           onClick={resetButtonHandler}
+          fullWidth
         />
       </div>
       <div className="filter-category">
@@ -58,12 +63,12 @@ export default function Filter() {
                   onChange={() => checkboxHandler(item)}
                 />
                 <span className="checkbox_title">{item}</span>
-                <span className="checkmark" />
+                <span className="checkbox_mark" />
               </label>
             </li>
           ))}
         </ul>
       </div>
-    </>
+    </div>
   );
 }
