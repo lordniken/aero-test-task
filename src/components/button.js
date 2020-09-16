@@ -13,7 +13,7 @@ export default function Button({
   const buttonClasses = classnames({
     button: true,
     icon: !title,
-    filled: filled && icon,
+    filled: filled && icon && !title,
     "full-width": fullWidth,
     grey: color === "secondary",
     disabled,
@@ -21,7 +21,11 @@ export default function Button({
 
   return (
     <button className={buttonClasses} onClick={onClick}>
-      {icon && icon}
+      {icon && title ? (
+        <div className="button-icon-container">{icon}</div>
+      ) : (
+        icon
+      )}
       {title && <span>{title}</span>}
     </button>
   );

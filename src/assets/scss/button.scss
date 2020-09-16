@@ -16,6 +16,11 @@
     background-color: $deep-aqua;
   }
 
+  &-icon-container {
+    display: inline;
+    margin-right: 13px;
+  }
+
   &.grey {
     background-color: $white2;
     color: $black;
@@ -42,8 +47,6 @@
   span {
     font-family: ProximaNova;
     font-size: 14px;
-
-    margin-left: 13px;
     vertical-align: middle;
   }
 
