@@ -11,6 +11,7 @@
   -moz-user-select: none;
   -webkit-user-select: none;
   -ms-user-select: none;
+  transition: background-color 0.3s;
 
   &:hover {
     background-color: $deep-aqua;
@@ -61,6 +62,7 @@
     }
 
     path {
+      transition: 0.2s;
       stroke: $cerulean;
       stroke-width: 2;
       fill: transparent;
@@ -68,8 +70,9 @@
 
     &.filled {
       path {
+        transition: 0.2s;
         fill: $cerulean;
-        stroke: none;
+        stroke-opacity: 0;
       }
 
       &:hover {
