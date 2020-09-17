@@ -1,9 +1,7 @@
-import { setProductsData, setFav, setFiltered } from "./actions";
-
-const apiUrl = "http://aero-task.lnkdev.ru/api";
+import { setProductsData, setFav, setFiltered } from "./redux";
 
 const makeRequest = async (url, method = "GET", body = undefined) => {
-  const res = await fetch(url, {
+  const res = await fetch(`http://aero-task.lnkdev.ru/api/${url}`, {
     method,
     body,
     headers: {
@@ -17,7 +15,7 @@ const makeRequest = async (url, method = "GET", body = undefined) => {
 export const getProductsData = () => {
   return async (dispatch) => {
     try {
-      const fetchedData = await makeRequest(`${apiUrl}/PRODUCTS`);
+      const fetchedData = await makeRequest(`PRODUCTS`);
 
       if (fetchedData.status === "PRODUCTS_SUCCESS")
         dispatch(setProductsData(fetchedData.data.products));
@@ -31,7 +29,7 @@ export const fetchFavState = (id) => {
   return async (dispatch) => {
     try {
       const fetchedData = await makeRequest(
-        `${apiUrl}/FAVORITE`,
+        `FAVORITE`,
         "PUT",
         JSON.stringify({ id })
       );
@@ -51,7 +49,7 @@ export const fetchFilter = (filters) => {
   return async (dispatch) => {
     try {
       const fetchedData = await makeRequest(
-        `${apiUrl}/FILTER`,
+        `FILTER`,
         "POST",
         JSON.stringify({ filters })
       );

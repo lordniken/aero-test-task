@@ -19,7 +19,10 @@ export default function App() {
       {!data && <div className="loading">Загрузка..</div>}
       <div className="product-list">
         {data &&
-          (filtered || data).map((item) => (
+          (
+            (filtered && filtered.length > 0 && filtered) ||
+            data
+          ).map((item) => (
             <Product
               key={item.id}
               id={item.id}

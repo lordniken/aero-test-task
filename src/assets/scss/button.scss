@@ -12,6 +12,14 @@
   -webkit-user-select: none;
   -ms-user-select: none;
   transition: background-color 0.3s;
+  -webkit-transition: background-color 0.3s;
+
+  &:active:not(.disabled):not(.icon) {
+    background-color: $white2;
+    &:not(.grey) {
+      background-color: $cerulean;
+    }
+  }
 
   &:hover {
     background-color: $deep-aqua;
@@ -63,6 +71,7 @@
 
     path {
       transition: 0.2s;
+      -webkit-transition: 0.2s;
       stroke: $cerulean;
       stroke-width: 2;
       fill: transparent;
@@ -71,6 +80,7 @@
     &.filled {
       path {
         transition: 0.2s;
+        -webkit-transition: 0.2s;
         fill: $cerulean;
         stroke-opacity: 0;
       }

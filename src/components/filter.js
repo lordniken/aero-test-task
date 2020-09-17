@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Button from "./button";
 import { useDispatch } from "react-redux";
 import { fetchFilter } from "../fetch";
-import { setFiltered } from "../actions";
+import { setFiltered } from "../redux";
 
 const catList = [
   "Canon",
