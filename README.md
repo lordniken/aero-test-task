@@ -1,6 +1,6 @@
 # aero-test-task
 
-Тестовое задание в отдел Front-end разработки. Стек: React, Redux, Redux Thunk, Sass. 
+Тестовое задание в отдел Front-end разработки. Стек: TypeScript, React, Redux, Thunk, Sass. 
 
 [Demo](http://aero-task.lnkdev.ru/)
 
