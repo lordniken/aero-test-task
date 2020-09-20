@@ -1,7 +1,8 @@
 import React from "react";
 import classnames from "classnames";
+import { ButtonProps } from "./types";
 
-export default function Button({
+export const Button: React.FC<ButtonProps> = ({
   title,
   icon,
   filled = true,
@@ -9,7 +10,7 @@ export default function Button({
   color,
   disabled = false,
   onClick,
-}) {
+}) => {
   const buttonClasses = classnames({
     button: true,
     icon: !title,
@@ -29,4 +30,4 @@ export default function Button({
       {title && <span>{title}</span>}
     </button>
   );
-}
+};

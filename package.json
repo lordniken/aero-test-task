@@ -1,8 +1,13 @@
 {
-  "name": "aero-test-task",
+  "name": "test",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@types/classnames": "^2.2.10",
+    "@types/node": "^12.12.61",
+    "@types/react": "^16.9.49",
+    "@types/react-dom": "^16.9.8",
+    "@types/react-redux": "^7.1.9",
     "classnames": "^2.2.6",
     "node-sass": "^4.14.1",
     "react": "^16.13.1",
@@ -10,7 +15,8 @@
     "react-redux": "^7.2.1",
     "react-scripts": "3.4.3",
     "redux": "^4.0.5",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "typescript": "^3.7.5"
   },
   "scripts": {
     "start": "react-scripts start",

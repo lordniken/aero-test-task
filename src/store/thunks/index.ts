@@ -1,7 +1,14 @@
-import { setProductsData, setFav, setFiltered } from "./redux";
+import { setProductsData, setFav, setFiltered } from "../actions";
+import { Dispatch } from "redux";
+import { TActionTypes } from "../actions/types";
+import { IRespData } from "../thunks/types";
 
-const makeRequest = async (url, method = "GET", body = undefined) => {
-  const res = await fetch(`http://aero-task.lnkdev.ru/api/${url}`, {
+const makeRequest = async (
+  urlPath: string,
+  method: string = "GET",
+  body: string | undefined = undefined
+): Promise<IRespData> => {
+  const res = await fetch(`http://aero-task.lnkdev.ru/api/${urlPath}`, {
     method,
     body,
     headers: {
@@ -13,9 +20,9 @@ const makeRequest = async (url, method = "GET", body = undefined) => {
 };
 
 export const getProductsData = () => {
-  return async (dispatch) => {
+  return async (dispatch: Dispatch<TActionTypes>) => {
     try {
-      const fetchedData = await makeRequest(`PRODUCTS`);
+      const fetchedData = await makeRequest("PRODUCTS");
 
       if (fetchedData.status === "PRODUCTS_SUCCESS")
         dispatch(setProductsData(fetchedData.data.products));
@@ -25,8 +32,8 @@ export const getProductsData = () => {
   };
 };
 
-export const fetchFavState = (id) => {
-  return async (dispatch) => {
+export const fetchFavState = (id: number) => {
+  return async (dispatch: Dispatch<TActionTypes>) => {
     try {
       const fetchedData = await makeRequest(
         `FAVORITE`,
@@ -45,8 +52,8 @@ export const fetchFavState = (id) => {
   };
 };
 
-export const fetchFilter = (filters) => {
-  return async (dispatch) => {
+export const fetchFilter = (filters: string[]) => {
+  return async (dispatch: Dispatch<TActionTypes>) => {
     try {
       const fetchedData = await makeRequest(
         `FILTER`,

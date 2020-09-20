@@ -1,11 +1,12 @@
 import React from "react";
-import Rate from "./rate";
-import Button from "./button";
-import { ReactComponent as CartIcon } from "../assets/svg/cart.svg";
-import { ReactComponent as CheckIcon } from "../assets/svg/check.svg";
-import Badges from "./badges";
+import Rate from "../Rate";
+import Button from "../Button";
+import { ReactComponent as CartIcon } from "../../assets/svg/cart.svg";
+import { ReactComponent as CheckIcon } from "../../assets/svg/check.svg";
+import Badges from "../Badges";
+import { IProduct } from "./types";
 
-export default function Product({
+export const Product: React.FC<IProduct> = ({
   id,
   inFav,
   code,
@@ -15,7 +16,7 @@ export default function Product({
   imgUrl,
   rating,
   price,
-}) {
+}) => {
   return (
     <div className="product-item">
       <div className="product-item-header">
@@ -31,7 +32,7 @@ export default function Product({
             <CheckIcon />
           </div>
         )}
-        <span className={!availability ? "ended" : null}>
+        <span className={!availability ? "ended" : undefined}>
           {availability ? "В наличии" : "Нет в наличии"}
         </span>
       </div>
@@ -54,4 +55,4 @@ export default function Product({
       </div>
     </div>
   );
-}
+};

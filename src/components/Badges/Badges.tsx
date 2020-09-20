@@ -1,11 +1,12 @@
 import React from "react";
-import Button from "./button";
-import { ReactComponent as FavIcon } from "../assets/svg/favourite-active.svg";
-import { ReactComponent as CompIcon } from "../assets/svg/comparsion.svg";
+import Button from "../Button";
+import { ReactComponent as FavIcon } from "../../assets/svg/favourite-active.svg";
+import { ReactComponent as CompIcon } from "../../assets/svg/comparsion.svg";
 import { useDispatch } from "react-redux";
-import { fetchFavState } from "../fetch";
+import { fetchFavState } from "../../store/thunks";
+import { BadgesProps } from "./types";
 
-export default function Badges({ id, inFav }) {
+export const Badges: React.FC<BadgesProps> = ({ id, inFav }) => {
   const dispatch = useDispatch();
 
   const handleFavClick = () => {
@@ -22,4 +23,4 @@ export default function Badges({ id, inFav }) {
       </li>
     </ul>
   );
-}
+};
