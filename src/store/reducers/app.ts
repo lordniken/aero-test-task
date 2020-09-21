@@ -2,7 +2,7 @@ import { IAppState } from "../types";
 import { TActionTypes, IFavPayload, ActionTypeKeys } from "../actions/types";
 import { IProduct } from "../../components/Product/types";
 
-const initialState: IAppState = {
+export const initialState: IAppState = {
   data: null,
   filtered: null,
 };

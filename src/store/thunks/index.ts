@@ -1,4 +1,4 @@
-import { setProductsData, setFav, setFiltered } from "../actions";
+import { setProductsData, setFav, setFiltered } from "../actions/app";
 import { Dispatch } from "redux";
 import { TActionTypes } from "../actions/types";
 import { IRespData } from "../thunks/types";
