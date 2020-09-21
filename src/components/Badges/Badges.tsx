@@ -3,7 +3,7 @@ import Button from "../Button";
 import { ReactComponent as FavIcon } from "../../assets/svg/favourite-active.svg";
 import { ReactComponent as CompIcon } from "../../assets/svg/comparsion.svg";
 import { useDispatch } from "react-redux";
-import { fetchFavState } from "../../store/thunks";
+import { fetchFavState } from "../../store/thunks/app";
 import { BadgesProps } from "./types";
 
 export const Badges: React.FC<BadgesProps> = ({ id, inFav }) => {

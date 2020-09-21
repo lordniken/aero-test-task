@@ -3,7 +3,7 @@ import "../assets/scss/main.scss";
 import Product from "./Product";
 import Filter from "./Filter";
 import { useSelector, useDispatch } from "react-redux";
-import { getProductsData } from "../store/thunks";
+import { getProductsData } from "../store/thunks/app";
 import { IStore } from "../store/types";
 import { IProduct } from "./Product/types";
 

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Button from "../Button";
 import { useDispatch } from "react-redux";
-import { fetchFilter } from "../../store/thunks";
+import { fetchFilter } from "../../store/thunks/app";
 import { setFiltered } from "../../store/actions/app";
 import { catList } from "./catSpecs";
 import Category from "./Category";

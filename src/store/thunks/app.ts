@@ -1,14 +1,16 @@
 import { setProductsData, setFav, setFiltered } from "../actions/app";
 import { Dispatch } from "redux";
 import { TActionTypes } from "../actions/types";
-import { IRespData } from "../thunks/types";
+import { IRespData } from "./types";
+
+export const API_BASE_PATH = "http://aero-task.lnkdev.ru/api/";
 
 const makeRequest = async (
   urlPath: string,
   method: string = "GET",
   body: string | undefined = undefined
 ): Promise<IRespData> => {
-  const res = await fetch(`http://aero-task.lnkdev.ru/api/${urlPath}`, {
+  const res = await fetch(API_BASE_PATH + urlPath, {
     method,
     body,
     headers: {
